@@ -1,6 +1,5 @@
-import axios from 'axios';
-import dotenv from 'dotenv';
-dotenv.config();
+const axios =require ('axios');
+require ('dotenv').config();
 
 const {URL}=process.env;
 
@@ -26,7 +25,7 @@ const getItemsById = async (id)=>{
     }
 }
 
-export {
+module.exports = {
     getItems,
     getItemsById
 };

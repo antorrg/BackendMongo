@@ -1,4 +1,4 @@
-import {getItems, getItemsById} from '../Controllers/getControllers';
+const {getItems, getItemsById} =require ('../Controllers/getControllers');
 
 const getHandler = async(req, res)=>{
     try {
@@ -21,7 +21,7 @@ const getHandlerId = async(req, res)=>{
 };
 
 
-export {
+module.exports = {
     getHandler,
     getHandlerId
     

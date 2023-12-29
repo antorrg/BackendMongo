@@ -11,4 +11,4 @@ const corsConfig = (req, res, next) => {
   }
 };
 
-export default  corsConfig;
+module.exports = corsConfig;

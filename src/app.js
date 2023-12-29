@@ -1,8 +1,8 @@
-import express from 'express';
-import cors from 'cors';
-import morgan from 'morgan'
-import corsConfig from './Utils/corsConfig'
-import mainRouter from './Routers/mainRouter'
+const express =require ('express');
+const cors =require ('cors');
+const morgan =require ('morgan')
+const corsConfig =require ('./Utils/corsConfig')
+const mainRouter =require ('./Routers/mainRouter')
 
 const app = express();
 app.use(cors());
@@ -12,7 +12,7 @@ app.use(express.json());
 
 app.use(mainRouter);
 
-export default app;
+module.exports = app;
 
 
 

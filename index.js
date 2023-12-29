@@ -13,13 +13,12 @@
 //!:::::::::::::::Proyecto con Base de datos MongoDB::::::::::::::::
 //*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-import app from './src/app';
-import dotenv from 'dotenv';
-dotenv.config();
+const app =require('./src/app');
+require ('dotenv').config();
 
 const {PORT}=process.env;
 
 app.listen(PORT, ()=>{
-    console.log(`Server is listening in port ${PORT} ✔️,
+    console.log(`Server is listening in port ${PORT} ✔️
 Congratulations!! Everything is allrigt 😉!!`);
 });

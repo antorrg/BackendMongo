@@ -1,9 +1,9 @@
-import {Router} from 'express'
-import getRouter from './getRouter'
-
+const {Router} = require('express');
 const mainRouter = Router();
+const getRouter = require('./getRouter');
+
 
 mainRouter.use(getRouter);
 
 
-export default mainRouter;
+module.exports = mainRouter;
