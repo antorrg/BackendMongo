@@ -16,7 +16,7 @@ const errorEndWare = ((err, req, res, next) => { // eslint-disable-line no-unuse
 });
 
 
-  module.exports = {
+  export {
     validJson,
     errorEndWare
   };
