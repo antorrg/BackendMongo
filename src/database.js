@@ -1,11 +1,10 @@
 import mongoose from 'mongoose';
-import dotenv from dotenv;
+import dotenv from 'dotenv'; // Corregido: Agrega comillas al importar dotenv
 dotenv.config();
-const {DB_HOST, DB_PORT, DB_NAME}=  process.env;
+const { DB_HOST, DB_PORT, DB_NAME } = process.env;
 
 // URL de conexión a la base de datos
 const dbURL = `mongodb://${DB_HOST}:${DB_PORT}/${DB_NAME}`;
-//mongodb://localhost:27017/nombre_de_tu_base_de_datos
 
 // Configuración de la conexión a la base de datos
 mongoose.connect(dbURL, {

@@ -14,13 +14,21 @@
 //*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 import app from'./src/app.js';
+import db from './src/database.js'
+
+
 import dotenv from 'dotenv'
 dotenv.config();
 
 
 const {PORT}=process.env;
 
+// Verificar si la conexión a la base de datos se ha establecido
+db.once('open', () => {
+    console.log('¡Conexión exitosa a la base de datos MongoDB!');
+
 app.listen(PORT, ()=>{
     console.log(`Server is listening in port ${PORT} ✔️
 Congratulations!! Everything is allrigt 😉!!`);
+});
 });
