@@ -4,7 +4,7 @@ import {userHandler, userCreate }from '../Handlers/userHandlers.js'
 const userRouter = Router();
 
 userRouter.get('/user', userHandler)
-userRouter.post('/create', userCreate)
+userRouter.post('/user/create', userCreate)
 
 
 export default userRouter;
