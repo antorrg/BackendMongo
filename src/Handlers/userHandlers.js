@@ -11,9 +11,9 @@ const userHandler = async(req, res)=>{
     }
 }
 const userCreate = async (req, res)=>{
-    const {email, password, name, image}= req.body;
+    const {email, password, role}= req.body;
     try {
-        const response = await userSaver(email, password, name, image);
+        const response = await userSaver(email, password, role);
         res.status(201).json(response)
     } catch (error) {
         res.status(500).json({error:error.message})

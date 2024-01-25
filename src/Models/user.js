@@ -6,7 +6,15 @@ const userSchema = new mongoose.Schema({
     type: String,
   required: true
   },
+  nickname: {
+    type: String,
+    required: true
+  },
   username: {
+    type: String,
+    required: false
+  },
+  usersurname: {
     type: String,
     required: false
   },
@@ -21,7 +29,7 @@ const userSchema = new mongoose.Schema({
   role: {
     type: String,
     enum: ['admin', 'moderator', 'user'],
-    default: 'user'
+    //default: 'user'
   },
   enabled: {
     type: Boolean,

@@ -1,7 +1,10 @@
 import User from '../Models/user.js';  // Asegúrate de que la ruta del modelo sea correcta
 import { generateToken } from '../Utils/encryptation.js';
+import dotenv from 'dotenv';
+dotenv.config()
+const {USER_IMAGE}= process.env
 
-const userSaver = async (email, password, name, image) => {
+const userSaver = async (email, password, role, image) => {
   try {
     const existingUser = await User.findOne({ email: email });
 
@@ -10,11 +13,15 @@ const userSaver = async (email, password, name, image) => {
       throw new Error('This email already exists.');
     }
     // Crear una nueva instancia del modelo User
+    const nickname = email.split('@')[0];
+
     const newUser = new User({
       email: email,
-      username: name,
       password: password,
-      image: image
+      nickname: nickname,
+      role: role?? 'user',
+      image: image??`${USER_IMAGE}`,
+    
       // Puedes establecer otros campos aquí según sea necesario
     });
 

@@ -1,7 +1,11 @@
 import mongoose from 'mongoose';
+import dotenv from 'dotenv'
+dotenv.config();
+const {DB_NAME, DB_HOST, DB_PORT}=process.env;
 
-const DB_URI= `mongodb://127.0.0.1:27017/LearnMongodb`;
+const DB_URI= `mongodb://${DB_HOST}:${DB_PORT}/${DB_NAME}`
 
+// const DB_URI= `mongodb://127.0.0.1:27017/LearnMongodb`; Este es un ejemplo de la declaracion de la URI de la Db mongo
 
 
 
@@ -9,10 +13,10 @@ const DB_URI= `mongodb://127.0.0.1:27017/LearnMongodb`;
  const connectDB =  async ()=>{
   try {
    await mongoose.connect(DB_URI)
-   console.log('DB conectada Jua Jua Jua')
+   console.log('DB conectada exitosamente ✅')
     
   } catch (error) {
-    console.error(error +' algo malo pasó')
+    console.error(error +' algo malo pasó 🔴')
     
   }
 
