@@ -1,7 +1,14 @@
 import User from '../Models/user.js';  // Asegúrate de que la ruta del modelo sea correcta
+import { generateToken } from '../Utils/encryptation.js';
 
 const userSaver = async (email, password, name, image) => {
   try {
+    const existingUser = await User.findOne({ email: email });
+
+    if (existingUser) {
+      // El usuario ya existe, puedes manejar esto de alguna manera (lanzar un error, devolver un mensaje, etc.)
+      throw new Error('This email already exists.');
+    }
     // Crear una nueva instancia del modelo User
     const newUser = new User({
       email: email,
@@ -12,11 +19,11 @@ const userSaver = async (email, password, name, image) => {
     });
 
     // Guardar el nuevo usuario en la base de datos
-    const savedUser = await newUser.save();
-    console.log('Usuario guardado:', savedUser);
-    return savedUser;
+    const user = await newUser.save();
+    const token = generateToken(user);
+    const data ={user, token}
+    return data;
   } catch (error) {
-    console.error('Error al guardar el usuario:', error);
     throw error;
   }
 };
