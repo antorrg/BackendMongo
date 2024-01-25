@@ -3,7 +3,6 @@ const {sign, verify} = pkg;
 // import {sign, verify} from 'jsonwebtoken';
 import dotenv from 'dotenv';
 dotenv.config();
-
 const {SECRET_KEY}=process.env;
 
 const generateToken = (user)=>{
@@ -41,7 +40,7 @@ const checkRole = (allowedRoles) => {
         next();
       } else {
         // El usuario no tiene el rol necesario, rechazar la solicitud
-        res.status(403).json({ error: 'Access unauthorized' });
+        res.status(403).json({ error: 'Unauthorized access' });
       }
     };
   };
@@ -53,11 +52,6 @@ export {
     checkRole
 };
   
-//   // Uso del middleware en una ruta específica
-//   app.get('/ruta-protegida', checkRole(['admin']), (req, res) => {
-//     // Código de la ruta protegida
-//     res.json({ mensaje: 'Acceso autorizado' });
-//   });
-  
+//todo   app.get('/ruta-protegida', checkRole(['admin']), (req, res) => {
 
 
