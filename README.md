@@ -11,9 +11,8 @@ Al día 25/01/2024 las rutas son:
 - Ruta: `/user/create`
 - Descripción: Crea un nuevo usuario.
 - Parámetros:
-  - `nombre` (cadena): Nombre del usuario.
-  - `correo` (cadena): Correo electrónico del usuario.
-  - `contrasena` (cadena): Contraseña del usuario.
+  - `email` (string): Correo electrónico del usuario.
+  - `password` (string): Contraseña del usuario.
 
 ### Inicio de Sesión de Usuario
 
@@ -21,12 +20,16 @@ Al día 25/01/2024 las rutas son:
 - Ruta: `/user/login`
 - Descripción: Inicia sesión para obtener un token de acceso.
 - Parámetros:
-  - `correo` (cadena): Correo electrónico del usuario.
-  - `contrasena` (cadena): Contraseña del usuario.
+  - `email` (string): Correo electrónico del usuario.
+  - `password` (string): Contraseña del usuario.
 
-### Obtener Todos los Usuarios (con permiso)
+### Obtener Todos los Usuarios (necesita permiso de moderator o admin)
 
 - Método: `GET`
 - Ruta: `/user`
-- Descripción: Obtiene la lista de todos los usuarios con permisos especiales.
+- Descripción: Obtiene la lista de todos los usuarios.
 
+### Sigue editando
+
+- Método:
+  - Ruta
