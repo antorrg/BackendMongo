@@ -1,6 +1,6 @@
+import bcrypt from 'bcrypt';
 
-
-const middleLogin = async (req, res, next)=>{
+const middleCreate = async (req, res, next)=>{
     const{email, password}= req.body;
     // Validar si existe el email y su formato usando una expresión regular
     if(!email){return res.status(400).json({error: "missing email"})};
@@ -9,7 +9,11 @@ const middleLogin = async (req, res, next)=>{
 
     if(!password){return res.status(400).json({error: "missing password"})};
     
+    if(password){
+        const hashedPassword = await bcrypt.hash(password, 10);
+        req.body.password= hashedPassword;
+    }
     next();
 }
 
-export default middleLogin;
+export default middleCreate;

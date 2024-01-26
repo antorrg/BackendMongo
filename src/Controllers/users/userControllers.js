@@ -13,4 +13,31 @@ const userController = async () => {
   }
 };
 
-export default userController;
+const updController = async (id, npassword, nrole, nusername, nusersurname, nimage, nenable)=>{
+   
+    try {
+      const updatedUser = await User.findByIdAndUpdate(
+        id,
+        {
+         $set:{
+          password: npassword,
+          username: nusername,
+          usersurname: nusersurname,
+          image: nimage,
+          role: nrole,
+          enable:nenable
+         },
+        },
+        {new:true} // Esto devuelve el documento actualizado
+        );
+        if(!updatedUser){throw new Error('failed update')};
+        return updatedUser;
+    } catch (error) {
+      throw error;
+    }
+}
+
+export  {
+  userController,
+  updController
+};
