@@ -1,4 +1,4 @@
-import {userController, updController} from "../../Controllers/users/userControllers.js";
+import {userController, updController, delController} from "../../Controllers/users/userControllers.js";
 import { userSaver, userVerifier } from "../../Controllers/users/userLogin.js";
 //Función get
 const userHandler = async (req, res) => {
@@ -20,6 +20,16 @@ const userUpdHandler = async (req, res)=>{
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
+}
+//Función para borrar un usuario
+const userDelHandler= async (req, res) =>{
+  const {id}= req.params;
+    try{
+      const response = await delController(id);
+      res.status(200).json(response);
+    }catch(error){
+       res.status(500).json({ error: error.message });
+    }
 }
 
 //Función para crear un usuario
@@ -47,5 +57,6 @@ export {
   userHandler, 
   userCreate, 
   userLogin,
-  userUpdHandler
+  userUpdHandler,
+  userDelHandler
 };

@@ -1,5 +1,5 @@
 import User from "../../Models/user.js";
-
+//controlador get para obtener usuarios
 const userController = async () => {
   try {
     const response = await User.find();
@@ -12,7 +12,7 @@ const userController = async () => {
     throw error;
   }
 };
-
+//controlador update para actualizar usuarios
 const updController = async (id, npassword, nrole, nusername, nusersurname, nimage, nenable)=>{
    
     try {
@@ -36,8 +36,27 @@ const updController = async (id, npassword, nrole, nusername, nusersurname, nima
       throw error;
     }
 }
+//controlador del para borrar usuarios (borrado lógico)
+const delController = async(id)=>{
+    try {
+      const deletedUser = await User.findByIdAndUpdate(
+        id,
+        {
+         $set:{
+          deleted:true
+         },
+        },
+        {new:true} // Esto devuelve el documento actualizado
+        );
+        if(!deletedUser){throw new Error('failed deleted')};
+        return deletedUser;
+    } catch (error) {
+      throw error;
+    }
+}
 
 export  {
   userController,
-  updController
+  updController,
+  delController
 };
