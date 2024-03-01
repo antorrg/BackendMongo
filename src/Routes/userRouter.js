@@ -15,6 +15,6 @@ userRouter.post('/user/login', middleLogin, userLogin)
 // Actualizacion usuario ====================================
 
 userRouter.put('/user/:id', verifyToken, userUpdHandler)
-userRouter.put('/user/:id', verifyToken, userDelHandler)
+userRouter.delete('/user/:id', verifyToken, userDelHandler)
 
 export default userRouter;
