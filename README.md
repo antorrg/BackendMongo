@@ -2,6 +2,9 @@
 
 Proyecto con Base de datos MongoDB. Iniciado el día 29/12/2023
 Al día 25/01/2024 las rutas son:
+En el día 04/03/2024 a petición mía recibí esta sugerencia de ChatGPT: 
+[BaseProyecto](./Data/baseProyecto.md)
+
 
 ## Usuarios
 
